@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Information</title>
+</head>
+<body>
+
+    <center><h1>Courses Crud Operation</h1></center>
+
+    {{resp}} <br><br>
+
+    <form action="http://localhost:8000/courses/register/" method="post">
+        {% csrf_token %}
+        Course Id : <input type="text" name="crid" value="{{cr.id}}"> <br><br>
+        Course Name : <input type="text" name="crname" value="{{cr.name}}"> <br><br>
+        Course Code : <input type="text" name="crcode" value="{{cr.code}}"> <br><br>
+        Course Fees : <input type="text" name="crfees" value="{{cr.fees}}"> <br><br>
+        Course duration : <select name="crdur">
+                            <option value="None">--select--</option>
+                            <option value="1M">1 Month</option>
+                            <option value="3M">1 Quarter</option>
+                            <option value="6M">Half Year</option>
+                            <option value="1Y">Year</option>
+                           </select><br><br>
+
+        <input type="submit">
+    </form>
+
+    {% if crlist %}
+            <table border="1">
+                    <thead>
+                            <th>Course Id </th>
+                            <th>Course Name </th>
+                            <th>Course Code </th>
+                            <th>Course Fees </th>
+                            <th>Course Duration </th>
+                            <th>Course Actions </th>
+                    </thead>
+                    <tbody>
+                            {% for cr in crlist %}
+                                    <tr>
+                                        <td>{{cr.id}}</td>
+                                        <td>{{cr.name}}</td>
+                                        <td>{{cr.code}}</td>
+                                        <td>{{cr.fees}}</td>
+                                        <td>{{cr.duration}}</td>
+                                        <td>
+                                            <a href="http://localhost:8000/courses/edit/{{cr.id}}">EDIT</a>
+                                            <a href="http://localhost:8000/courses/delete/{{cr.id}}">DELETE</a>
+                                        </td>
+
+                                    </tr>
+                            {% endfor %}
+
+                    </tbody>
+            </table>
+    {% endif %}
+
+
+
+</body>
+</html>

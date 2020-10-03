@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Information</title>
+</head>
+<body>
+
+             <center><h1>students Crud Operation</h1></center>
+
+
+    {{resp}}
+    <form action="http://localhost:8000/student/register/" method="post">
+       {% csrf_token %}
+        Student Id : <input type="text" name="sid" value="{{stud.id}}"> <br><br>
+        Student FirstName : <input type="text" name="sfnm" value="{{stud.fname}}"> <br><br>
+        Student LastName : <input type="text" name="slnm" value="{{stud.lname}}"> <br><br>
+        Student DOB: <input type="text" name="sdob" value="{{stud.dob}}"> <br><br>
+        Student Contact : <input type="text" name="smob" value="{{stud.contact}}"> <br><br>
+        Student Email : <input type="text" name="semail" value="{{stud.email}}"> <br><br>
+
+
+        Student Gender :
+                        {% if stud.gender == "M" %}
+                            <input type="radio" name="sgen" value="M" checked> Male
+                        {% else %}
+                            <input type="radio" name="sgen" value="M"> Male
+                        {% endif %}
+
+                        {% if stud.gender == "F" %}
+                            <input type="radio" name="sgen" value="F" checked> Female
+                        {% else %}
+                            <input type="radio" name="sgen" value="F"> Female
+                           {% endif %}
+            <br><br>
+        Student Qualification : <input type="text" name="squal" value="{{stud.qual}}"> <br><br>
+
+        Select Courses : <select name="crlist" multiple>
+                    {% for cr in crs %}
+                <option value="{{cr.id}}">{{cr.id}}-{{cr.name}}</option>
+                        {% endfor %}
+    </select><br><br>
+
+       <input type="submit">
+    </form>
+
+    <table border="1">
+            <thead>
+                <th>Stud ID</th>
+                <th>Stud FullName</th>
+                <th>Stud Mobile</th>
+                <th>Stud Email</th>
+                <th>Stud Qual</th>
+                <th>Stud Action</th>
+            </thead>
+            <tbody>
+                    {% for st in sts %}
+                        <tr>
+                            <td>{{st.id}}</td>
+                            <td>{%if st.gender == 'M'%}
+                                    Mr.
+                                {% else %}
+                                    Miss.
+                                {% endif %}
+
+                                {{st.fname}} {{st.lname}}
+                            </td>
+                            <td>{{st.contact}}</td>
+                            <td>{{st.email}}</td>
+                            <td>{{st.qual}}</td>
+                            <td>
+                               <a href="http://localhost:8000/student/edit/{{st.id}}">EDIT</a>
+                               <a href="http://localhost:8000/student/delete/{{st.id}}">DELETE</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+
+            </tbody>
+    </table>
+
+</body>
+</html>

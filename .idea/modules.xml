@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../pfivedj/bookstore/.idea/bookstore.iml" filepath="$PROJECT_DIR$/../../pfivedj/bookstore/.idea/bookstore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../abcd/PYTHONSAM/hotel_app/.idea/hotel_app.iml" filepath="$PROJECT_DIR$/../../abcd/PYTHONSAM/hotel_app/.idea/hotel_app.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/numpy_demos/.idea/numpy_demos.iml" filepath="$USER_HOME$/PycharmProjects/numpy_demos/.idea/numpy_demos.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/samples/.idea/samples.iml" filepath="$USER_HOME$/PycharmProjects/samples/.idea/samples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/studinq.iml" filepath="$PROJECT_DIR$/.idea/studinq.iml" />
+    </modules>
+  </component>
+</project>
